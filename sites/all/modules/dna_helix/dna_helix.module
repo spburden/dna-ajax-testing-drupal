@@ -36,3 +36,26 @@ function dna_helix_form() {
    );
    return $form;
 }
+
+function dna_helix_form_submit($form, &$form_state) {
+    $helix_half = $form_state['values']['helix_half'];
+    $helix_half = strtoupper($helix_half);
+    $other_half = pairHelix($helix_half);
+    $_SESSION['helix_half'] = $helix_half;
+    $_SESSION['other_half'] = $other_half;
+    $form_state['redirect'] = 'dna_results_page';
+}
+
+function pairHelix($helix_half) {
+    $other_half = "";
+    if ($helix_half === "A") {
+        $other_half .= 'T';
+    } elseif ($helix_half === "T") {
+        $other_half .= 'A';
+    } elseif ($helix_half === "C") {
+        $other_half .= 'G';
+    } else {
+        $other_half .= 'C';
+    }
+    return $other_half;
+}
