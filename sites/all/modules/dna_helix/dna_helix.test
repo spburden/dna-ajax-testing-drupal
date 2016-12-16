@@ -40,7 +40,7 @@ class DNAHelixUnitTests extends DrupalUnitTestCase
       $this->assertEqual($output, $expected_output, $description);
 
       // pair more than 1 helix
-      $description = 'Successfully paired 1 word';
+      $description = 'Successfully paired 2 words';
       $helix_half = 'ATAAGC';
       $output = pairHelix($helix_half);
       $expected_output = 'TATTCG';
