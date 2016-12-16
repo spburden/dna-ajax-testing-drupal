@@ -5,7 +5,8 @@
  */
 class DNAHelixFunctionalTests extends DrupalWebTestCase
 {
-    public static function getInfo() {
+    public static function getInfo()
+    {
         return array(
             'name' => 'DNA Helix Functional Tests',
             'description' => 'Functional Tests for the DNA Helix module.',
@@ -13,9 +14,29 @@ class DNAHelixFunctionalTests extends DrupalWebTestCase
         );
     }
 
-    public function setUp() {
+    public function setUp()
+    {
         // enable the module.
         parent::setUp(array('dna_helix'));
+    }
+
+    public function testHelixHalf()
+    {
+         // We want to navigate to the helix form, add some good values, submit it and make sure the output is displayed.
+        // Navigate to /dna_helix.
+        $this->drupalGet('dna_helix');
+
+        // Verify that the form exists.
+        $this->assertText("DNA Helix Pairer", 'Form displayed!');
+
+        /// Insert a valid letter.
+        $form['helix_half'] = 'a';
+
+        // Submit Form.
+        $this->drupalPost('dna_helix', $form, t('Pair!'));
+
+        // Verify correct result.
+        $this->assertText('T', 'Output displayed!');
     }
 }
 
