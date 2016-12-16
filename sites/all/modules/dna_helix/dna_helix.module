@@ -28,6 +28,8 @@ function dna_helix_form() {
        '#title' => 'Helix Half',
        '#type' => 'textfield',
        '#description' => t('Enter one half of a DNA Helix'),
+       '#required' => TRUE,
+       "#element_validate" => array('element_validate_letters'),
    );
 
    $form['submit'] = array(
@@ -71,4 +73,14 @@ function dna_results() {
     <h3>Other half of the double helix:</h3>
     <p>$output</p>";
     return $result;
+}
+
+function element_validate_letters($element) {
+    $letters = str_split(strtoupper($element['#value']));
+    $valid_letters = array('A', 'C', 'G', 'T');
+    for ($i=0; $i < count($letters); $i++) {
+        if (!in_array($letters[$i], $valid_letters)) {
+            form_error($element, t("The only characters that are allowed in your helix half are the letters: 'A', 'C', 'G', or 'T'."));
+        }
+    }
 }

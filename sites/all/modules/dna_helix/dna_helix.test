@@ -39,7 +39,7 @@ class DNAHelixFunctionalTests extends DrupalWebTestCase
         $this->assertText('T', 'Output displayed!');
     }
 
-    public function testValidInput()
+    public function testInvalidInput()
     {
          // We want to navigate to the helix form, add some good values, submit it and make sure the output is displayed.
         // Navigate to /dna_helix.
