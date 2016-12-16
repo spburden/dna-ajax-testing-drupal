@@ -1,0 +1,38 @@
+<?php
+function dna_helix_menu() {
+    $item = array();
+    $items['dna_helix'] = array(
+        'title' => "DNA Helix Pairer",
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('dna_helix_form'),
+        'access callback' => TRUE,
+        'type' => MENU_NORMAL_ITEM,
+    );
+    $items['dna_results_page'] = array(
+        'title' => "Double Helix:",
+        'page callback' => 'dna_results',
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+    );
+    return $items;
+}
+
+function dna_helix_form() {
+    $path = drupal_get_path('module', 'dna_helix');
+
+    $form['helix_image'] = array(
+        '#markup' => "<img src=" . $path . "/helix.jpg height='200'>"
+    );
+
+    $form['helix_half'] = array(
+       '#title' => 'Helix Half',
+       '#type' => 'textfield',
+       '#description' => t('Enter one half of a DNA Helix'),
+   );
+
+   $form['submit'] = array(
+       '#type' => 'submit',
+       '#value' => 'Pair!',
+   );
+   return $form;
+}

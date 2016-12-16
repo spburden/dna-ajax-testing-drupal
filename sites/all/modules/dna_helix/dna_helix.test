@@ -1,0 +1,32 @@
+<?php
+/**
+ * @file
+ * Tests for DNAHelix Module.
+ */
+class DNAHelixFunctionalTests extends DrupalWebTestCase
+{
+    public static function getInfo() {
+        return array(
+            'name' => 'DNA Helix Functional Tests',
+            'description' => 'Functional Tests for the DNA Helix module.',
+            'group' => 'Stephen Burden Tests',
+        );
+    }
+
+    public function setUp() {
+        // enable the module.
+        parent::setUp(array('dna_helix'));
+    }
+}
+
+class DNAHelixUnitTests extends DrupalUnitTestCase
+{
+    public static function getInfo()
+    {
+        return array(
+            'name' => 'DNA Helix Unit Tests',
+            'description' => 'Unit Tests for the DNA Helix module.',
+            'group' => 'Stephen Burden Tests',
+        );
+    }
+}

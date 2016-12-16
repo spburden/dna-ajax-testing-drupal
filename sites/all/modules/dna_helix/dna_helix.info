@@ -1,0 +1,6 @@
+name = DNA Helix Pairer
+description = A form input for one half of the double helix which will then generate the other half and print both sides on the browser.
+package = Stephen Burden
+core = 7.x
+files[] = dna_helix.module
+files[] = dna_helix.test
