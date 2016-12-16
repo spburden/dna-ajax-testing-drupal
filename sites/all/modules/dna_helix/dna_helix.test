@@ -38,6 +38,25 @@ class DNAHelixFunctionalTests extends DrupalWebTestCase
         // Verify correct result.
         $this->assertText('T', 'Output displayed!');
     }
+
+    public function testValidInput()
+    {
+         // We want to navigate to the helix form, add some good values, submit it and make sure the output is displayed.
+        // Navigate to /dna_helix.
+        $this->drupalGet('dna_helix');
+
+        // Verify that the form exists.
+        $this->assertText("DNA Helix Pairer", 'Form displayed!');
+
+        /// Insert a invalid character.
+        $form['helix_half'] = 'b';
+
+        // Submit Form.
+        $this->drupalPost('dna_helix', $form, t('Pair!'));
+
+        // Verify correct result.
+        $this->assertText("The only characters that are allowed in your helix half are the letters: 'A', 'C', 'G', or 'T'.", 'INVALID Input Value!');
+    }
 }
 
 class DNAHelixUnitTests extends DrupalUnitTestCase
