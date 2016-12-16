@@ -9,7 +9,7 @@ function dna_helix_menu() {
         'type' => MENU_NORMAL_ITEM,
     );
     $items['dna_results_page'] = array(
-        'title' => "Double Helix:",
+        'title' => "Double Helix",
         'page callback' => 'dna_results',
         'access callback' => TRUE,
         'type' => MENU_CALLBACK,
@@ -61,4 +61,14 @@ function pairHelix($helix_half) {
         }
     }
     return $other_half;
+}
+
+function dna_results() {
+    $input = $_SESSION['helix_half'];
+    $output = $_SESSION['other_half'];
+    $result = "<h3>Your half of the double helix:</h3>
+    <p>$input</p>
+    <h3>Other half of the double helix:</h3>
+    <p>$output</p>";
+    return $result;
 }
