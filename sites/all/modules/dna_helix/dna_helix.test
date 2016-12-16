@@ -32,11 +32,18 @@ class DNAHelixUnitTests extends DrupalUnitTestCase
 
     function testEncrypt()
    {
-      // pair 1 helix
+      // pair 1 helix (with lower case)
       $description = 'Successfully paired 1 word';
-      $helix_half = 'A';
+      $helix_half = 'a';
       $output = pairHelix($helix_half);
       $expected_output = 'T';
+      $this->assertEqual($output, $expected_output, $description);
+
+      // pair more than 1 helix
+      $description = 'Successfully paired 1 word';
+      $helix_half = 'ATAAGC';
+      $output = pairHelix($helix_half);
+      $expected_output = 'TATTCG';
       $this->assertEqual($output, $expected_output, $description);
    }
 }
