@@ -29,4 +29,14 @@ class DNAHelixUnitTests extends DrupalUnitTestCase
             'group' => 'Stephen Burden Tests',
         );
     }
+
+    function testEncrypt()
+   {
+      // pair 1 helix
+      $description = 'Successfully paired 1 word';
+      $helix_half = 'A';
+      $output = pairHelix($helix_half);
+      $expected_output = 'T';
+      $this->assertEqual($output, $expected_output, $description);
+   }
 }
