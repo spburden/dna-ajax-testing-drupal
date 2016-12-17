@@ -4,3 +4,4 @@ package = Stephen Burden
 core = 7.x
 files[] = dna_helix.module
 files[] = dna_helix.test
+dependencies[] = simpletest
