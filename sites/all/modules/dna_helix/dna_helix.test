@@ -51,7 +51,7 @@ class DNAHelixFunctionalTests extends DrupalWebTestCase
         /// Insert a invalid character.
         $form['helix_half'] = 'b';
 
-        // Submit Form.
+        // Submit Form (form is located @ /'dna_helix').
         $this->drupalPost('dna_helix', $form, t('Pair!'));
 
         // Verify correct result.
@@ -71,7 +71,7 @@ class DNAHelixUnitTests extends DrupalUnitTestCase
     }
 
     function testEncrypt()
-   {
+    {
       // pair 1 helix (with lower case)
       $description = 'Successfully paired 1 word';
       $helix_half = 'a';

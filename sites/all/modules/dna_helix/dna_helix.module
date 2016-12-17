@@ -42,7 +42,7 @@ function dna_helix_form() {
 function dna_helix_form_submit($form, &$form_state) {
     $helix_half = $form_state['values']['helix_half'];
     $other_half = pairHelix($helix_half);
-    $_SESSION['helix_half'] = $helix_half;
+    $_SESSION['helix_half'] = strtoupper($helix_half);
     $_SESSION['other_half'] = $other_half;
     $form_state['redirect'] = 'dna_results_page';
 }
