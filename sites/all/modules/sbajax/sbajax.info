@@ -1,5 +1,5 @@
-name = My Ajax Article Node Loader
-description = Display Article Nodes with Ajax.
+name = AJAX Article Node Loader
+description = Display Article Nodes with AJAX.
 package = Stephen Burden
 core = 7.x
 files[] = sbajax.module
